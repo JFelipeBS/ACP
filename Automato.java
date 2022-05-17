@@ -78,7 +78,7 @@ public class Automato {
                             if (!automato.getPilha().empty()) {
                              escrita = (String) automato.getPilha().peek();
                             }
-                            System.out.println("&*(" + estadoVelho + ", " + epsilon + ", "+ trasiPossivel.getTopoDaPilha() + ", " + escrita + ")");
+                            System.out.println("&*(" + estadoVelho + ", " + epsilon + ", "+ trasiPossivel.getTopoDaPilha() + ") = (" + automato.getEstadoAtual()+ ", " + escrita + ")");
                             verificar = true;
                         }
 
@@ -139,18 +139,23 @@ public class Automato {
         }
         System.out.println("Automato finalizou no estado = " + estadoAtual);
         System.out.println();
-        System.out.println("Numero de simbolos que restaram: "+ verificaCadeia.size());
+        System.out.println("Numero de simbolos que restaram da cadeia: "+ verificaCadeia.size());
+        System.out.println("Numero de simbolos na Pilha: "+ automato.getPilha().size());
+        System.out.println();
 
         if (verificaCadeia.isEmpty()) {
             if (automato.getPilha().empty() && automato.getEstadoAtual().iseFinal()) {
-                System.out.println("Cadeia aceita por cadeia VAZIA e estado de ACEITAÇÃO ");
+                System.out.println("Cadeia aceita por cadeia VAZIA e estado Final ");
             } else if (automato.getEstadoAtual().iseFinal()) {
-                System.out.println("Cadeia aceita por estado de ACEITAÇÃO ");
+                System.out.println("Cadeia aceita por estado Final ");
             }else if(automato.getPilha().empty()){
                 System.out.println("Cadeia aceita por cadeia VAZIA");
             }else if(!automato.getEstadoAtual().iseFinal()){
                 System.out.println("Cadeia REJEITADA");  
             }
+        }else if(automato.getEstadoAtual().iseFinal()){
+            System.out.println("Cadeia aceita por estado Final ");
+
         }else{
             System.out.println("Cadeia REJEITADA");
         }
