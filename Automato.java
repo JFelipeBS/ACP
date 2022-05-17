@@ -145,11 +145,11 @@ public class Automato {
 
         if (verificaCadeia.isEmpty()) {
             if (automato.getPilha().empty() && automato.getEstadoAtual().iseFinal()) {
-                System.out.println("Cadeia aceita por cadeia VAZIA e estado Final ");
+                System.out.println("Cadeia aceita por pilha VAZIA e estado Final ");
             } else if (automato.getEstadoAtual().iseFinal()) {
                 System.out.println("Cadeia aceita por estado Final ");
             }else if(automato.getPilha().empty()){
-                System.out.println("Cadeia aceita por cadeia VAZIA");
+                System.out.println("Cadeia aceita por pilha VAZIA");
             }else if(!automato.getEstadoAtual().iseFinal()){
                 System.out.println("Cadeia REJEITADA");  
             }
